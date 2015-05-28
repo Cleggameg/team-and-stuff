@@ -1,0 +1,20 @@
+<h1><%=@team.name%></h1>
+<h3> Who's on the team?</h3>
+
+<ul id="player_list">
+  <% @team.players.each do |player| %>
+  <li><%= "#{player.first_name} #{player.last_name}"%></li>
+
+  <form action="/teams/<%=@team.id%>/players/<%=player.id%>" method="POST">
+  <input type="hidden" name="_method" value="DELETE"/>
+  <input type="submit" value="DELETE" />
+  </form>
+  <% end %>
+</ul>
+
+<form class="player_add_form" method="post" action="/teams/<%=@team.id%>/players">
+  <input class="player_username" class="team_text_area" type="text" name="player[username]" placeholder="New player's username"><br>
+  <input type="submit" value="Add a player">
+</form><br>
+
+<a href="/teams/show">Return to list of all teams</a>

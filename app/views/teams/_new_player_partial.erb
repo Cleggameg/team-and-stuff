@@ -1,0 +1,6 @@
+  <li><%= "#{player.first_name} #{player.last_name}"%></li>
+
+  <form action="/teams/<%=@team.id%>/players/<%=player.id%>" method="POST">
+  <input type="hidden" name="_method" value="DELETE"/>
+  <input type="submit" value="DELETE" />
+  </form>
